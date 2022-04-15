@@ -43,7 +43,8 @@ const TabBarCustom = ({ state, descriptors, navigation, position }) => (
             backgroundColor: colors.DARK,
             borderBottomColor: isFocused ? colors.SILVER : colors.DARK,
             borderBottomWidth: 5,
-            paddingVertical: 6
+            paddingTop: 10,
+            paddingBottom: 6
           }}
         >
           <Text
@@ -51,7 +52,7 @@ const TabBarCustom = ({ state, descriptors, navigation, position }) => (
             style={{
               color: isFocused ? colors.WHITE : colors.SILVER,
               fontSize: 13,
-              fontWeight: "700"
+              fontWeight: isFocused ? "700" : "normal"
             }}
           />
         </Button>

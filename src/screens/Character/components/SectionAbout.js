@@ -4,27 +4,43 @@ import { LabelKeyValue, Section } from "@components";
 
 const SectionAbout = ({ character, navigation }) => {
   const { comics, series, stories, events } = character;
-  console.log("XXX", character);
+
+  const handleOnPress = screen => {
+    navigation.navigate(`Character${screen}`);
+  };
+
   return (
-    <Section title="characterListItem.about">
+    <Section title="characterDetail.about">
       <LabelKeyValue
+        onPress={() => {
+          handleOnPress("Comics");
+        }}
         icon="book-open-variant"
-        label="characterListItem.comics"
+        label="characterDetail.comics"
         value={comics.available}
       />
       <LabelKeyValue
+        onPress={() => {
+          handleOnPress("Events");
+        }}
         icon="calendar"
-        label="characterListItem.events"
+        label="characterDetail.events"
         value={events.available}
       />
       <LabelKeyValue
+        onPress={() => {
+          handleOnPress("Series");
+        }}
         icon="television"
-        label="characterListItem.series"
+        label="characterDetail.series"
         value={series.available}
       />
       <LabelKeyValue
+        onPress={() => {
+          handleOnPress("Stories");
+        }}
         icon="history"
-        label="characterListItem.stories"
+        label="characterDetail.stories"
         value={stories.available}
       />
     </Section>

@@ -1,10 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { colors } from "../../../utils/constants";
-
-const FocusedGradient = ["#4c669f", "#3b5998", "#192f6a"];
-const NotFocusedGradient = ["#ffffff", "#ffffff"];
 
 const MainTabbar = ({ state, descriptors, navigation }) => {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -17,7 +14,7 @@ const MainTabbar = ({ state, descriptors, navigation }) => {
     <View
       style={{
         flexDirection: "row",
-        backgroundColor: colors.BLACK,
+        backgroundColor: colors.DARK,
         height: 50
       }}
     >
@@ -44,13 +41,6 @@ const MainTabbar = ({ state, descriptors, navigation }) => {
           }
         };
 
-        const onLongPress = () => {
-          navigation.emit({
-            type: "tabLongPress",
-            target: route.key
-          });
-        };
-
         return (
           <View
             key={label}
@@ -63,7 +53,6 @@ const MainTabbar = ({ state, descriptors, navigation }) => {
               accessibilityState={isFocused ? { selected: true } : {}}
               accessibilityLabel={options.tabBarAccessibilityLabel}
               onPress={onPress}
-              onLongPress={onLongPress}
               style={{
                 minHeight: 50,
                 justifyContent: "center",
@@ -71,7 +60,7 @@ const MainTabbar = ({ state, descriptors, navigation }) => {
               }}
             >
               <Icon
-                name="home"
+                name={label === "Home" ? "home" : "magnify"}
                 color={colors.WHITE}
                 size={isFocused ? 24 : 20}
               />

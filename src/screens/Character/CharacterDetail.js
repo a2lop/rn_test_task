@@ -1,25 +1,16 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { FlatList, View, Image } from "react-native";
+import { View, Image } from "react-native";
 import { Section, Text } from "@components";
 import { getCharacterDetail } from "services/characters";
 import Loading from "components/Loading";
 import SectionAbout from "./components/SectionAbout";
 
-const CharacterDetail = ({ navigation, route }) => {
-  //   const [character, setCharacter] = useState(route.params);
-  const [character, setCharacter] = useState({
-    id: 1017100,
-    name: "A-Bomb (HAS)",
-    description:
-      "Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! ",
-    image: "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg"
-  });
+const CharacterDetail = ({ navigation, _character }) => {
+  const [character, setCharacter] = useState(_character);
 
   const [isLoading, setIsLoading] = useState(true);
   let isMounted = true;
   useEffect(() => {
-    // const initialize = async () => {};
-    // initialize();
     if (character) {
       if (isMounted) {
         loadCharacter();
@@ -37,8 +28,6 @@ const CharacterDetail = ({ navigation, route }) => {
       setIsLoading(false);
     }
   }, []);
-
-  //   const renderCharacter = ({ item }) => <CharacterListItem character={item} />;
 
   return (
     <View style={{ flex: 1, paddingHorizontal: 15, paddingVertical: 10 }}>
@@ -63,9 +52,11 @@ const CharacterDetail = ({ navigation, route }) => {
         </>
       </Section>
 
-      {/* <Section title="characterListItem.about" /> */}
-
-      {isLoading ? <Loading /> : <SectionAbout character={character} />}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <SectionAbout character={character} navigation={navigation} />
+      )}
     </View>
   );
 };

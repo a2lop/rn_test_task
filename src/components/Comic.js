@@ -9,17 +9,17 @@ const Comic = ({ comic }) => {
 
   return (
     <Button
-      style={{ flex: 1, paddingHorizontal: 5, marginBottom: 10 }}
+      style={{ flex: 1, paddingHorizontal: 5, marginBottom: 20 }}
       onPress={openComic}
     >
-      {/* <View style={{ flex: 1 }}> */}
       <Image
         source={{ uri: comic.imageUrl }}
         resizeMode="stretch"
         style={{ aspectRatio: 0.75 }}
       />
-      {/* </View> */}
-      <Text type="listItemTitle">{comic.title}</Text>
+      <Text type="listItemTitle" style={{ marginTop: 10 }} numberOfLines={2}>
+        {comic.title}
+      </Text>
     </Button>
   );
 };

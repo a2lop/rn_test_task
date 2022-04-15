@@ -8,10 +8,10 @@ import I18n from "utils/i18n";
 
 const CharacterListItem = ({ character = {}, navigation }) => {
   const onPress = () => {
-    navigation.navigate("CharacterDetail", character);
+    navigation.navigate("Character", { character });
   };
 
-  const { name, description, image } = character;
+  const { name, description, imageUrl } = character;
   return (
     <View
       style={{
@@ -22,12 +22,12 @@ const CharacterListItem = ({ character = {}, navigation }) => {
         onPress={onPress}
         style={{
           flexDirection: "row",
-          paddingHorizontal: 15
+          // paddingHorizontal: 15
         }}
       >
         <View style={{ width: 75, marginRight: 10 }}>
           <Image
-            source={{ uri: image }}
+            source={{ uri: imageUrl }}
             resizeMode={"contain"}
             style={{
               width: 75,

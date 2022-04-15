@@ -10,6 +10,8 @@ const Tab = createMaterialTopTabNavigator();
 const MainNavigator = () => {
   return (
     <Tab.Navigator
+      screenOptions={{ lazy: true }}
+      initialRouteName="Home"
       tabBar={props => <MainTabbar {...props} />}
       tabBarPosition="bottom"
     >

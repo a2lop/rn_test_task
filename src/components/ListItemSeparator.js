@@ -6,8 +6,9 @@ const ListItemSeparator = ({ marginVertical = 10 }) => {
   return (
     <View
       style={{
-        borderBottomColor: colors.GRAY,
+        borderBottomColor: colors.SILVER,
         borderBottomWidth: 2,
+        marginHorizontal: -15,
         marginVertical
       }}
     />

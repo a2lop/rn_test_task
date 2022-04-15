@@ -11,6 +11,7 @@ export const fetcher = ({ method = "GET", action, additionalParams = {} }) => {
   );
 
   const params = { apikey: PUBLIC_KEY, ts, hash, ...additionalParams };
+  console.log("params", params);
 
   const queryParams = Object.keys(params)
     .map(key => `${key}=${params[key]}`)
@@ -23,17 +24,8 @@ export const fetcher = ({ method = "GET", action, additionalParams = {} }) => {
       return response.data;
     })
     .catch(err => {
-      console.log("XXX error", err.message);
+      console.log("error", err.message);
     });
 
-  //   return axios
-  //     .get(url, {})
-  //     .then(response => {
-  //       console.log("XXX response", response);
-
-  //       return response.data;
-  //     })
-  //     .catch(err => {
-  //       console.log("XXX error", err);
-  //     });
+  //
 };
