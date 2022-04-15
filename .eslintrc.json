@@ -1,0 +1,49 @@
+{
+  "parser": "@babel/eslint-parser",
+  "env": {
+    "es2021": true,
+    "node": true,
+    "react-native/react-native": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "airbnb/hooks", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-native"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-use-before-define": ["error", { "variables": false }],
+    "react/prop-types": "off",
+    "react-hooks/exhaustive-deps": "error",
+    "react/jsx-props-no-spreading": "off",
+    "no-shadow": "off",
+    "no-param-reassign": "off",
+    "no-underscore-dangle": "off",
+    "global-require": "off",
+
+    // import
+    "import/no-unresolved": "error",
+    "import/no-extraneous-dependencies": ["error", { "packageDir": "./" }],
+
+    "camelcase": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules"],
+        "paths": ["src"],
+        "alias": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx", ".native.js"],
+          "map": [["@components", "./src/components"]]
+        }
+      }
+    }
+  }
+}

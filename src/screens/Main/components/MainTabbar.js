@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { COLORS } from "../../../utils/constants";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { colors } from "../../../utils/constants";
 
 const FocusedGradient = ["#4c669f", "#3b5998", "#192f6a"];
 const NotFocusedGradient = ["#ffffff", "#ffffff"];
@@ -13,7 +14,13 @@ const MainTabbar = ({ state, descriptors, navigation }) => {
   }
 
   return (
-    <View style={{ flexDirection: "row", backgroundColor: COLORS.BLACK }}>
+    <View
+      style={{
+        flexDirection: "row",
+        backgroundColor: colors.BLACK,
+        height: 50
+      }}
+    >
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -46,16 +53,15 @@ const MainTabbar = ({ state, descriptors, navigation }) => {
 
         return (
           <View
+            key={label}
             style={{
               flex: 1
-              // backgroundColor: isFocused ? COLORS.BLACK : COLORS.GRAY
             }}
           >
             <TouchableOpacity
               accessibilityRole="button"
               accessibilityState={isFocused ? { selected: true } : {}}
               accessibilityLabel={options.tabBarAccessibilityLabel}
-              testID={options.tabBarTestID}
               onPress={onPress}
               onLongPress={onLongPress}
               style={{
@@ -64,7 +70,18 @@ const MainTabbar = ({ state, descriptors, navigation }) => {
                 alignItems: "center"
               }}
             >
-              <Text style={{ color: isFocused ? "white" : "#222" }}>
+              <Icon
+                name="home"
+                color={colors.WHITE}
+                size={isFocused ? 24 : 20}
+              />
+              <Text
+                style={{
+                  color: colors.WHITE,
+                  fontWeight: isFocused ? "bold" : "normal",
+                  fontSize: isFocused ? 16 : 14
+                }}
+              >
                 {label}
               </Text>
             </TouchableOpacity>
