@@ -1,7 +1,7 @@
 import * as React from "react";
 import Home from "./Home";
 import Search from "./Search";
-import { COLORS } from "../../utils/constants";
+import { colors } from "../../utils/constants";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import MainTabbar from "./components/MainTabbar";
 
@@ -10,6 +10,8 @@ const Tab = createMaterialTopTabNavigator();
 const MainNavigator = () => {
   return (
     <Tab.Navigator
+      screenOptions={{ lazy: true }}
+      initialRouteName="Home"
       tabBar={props => <MainTabbar {...props} />}
       tabBarPosition="bottom"
     >
