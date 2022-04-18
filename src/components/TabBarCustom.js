@@ -31,6 +31,7 @@ const TabBarCustom = ({ state, descriptors, navigation, position }) => (
 
       return (
         <Button
+          activeOpacity={1}
           key={index}
           accessibilityRole="button"
           accessibilityState={isFocused ? { selected: true } : {}}

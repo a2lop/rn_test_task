@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { FlatList, View } from "react-native";
 import { Serie, ListItemSeparator } from "@components";
 import { getCharacterSeries } from "services/characters";
-import { footerLoading, getUrlFromThumbnail } from "utils/helpers";
+import { footerLoading, getEmptyComponent, getUrlFromThumbnail } from "utils/helpers";
 
 const CharacterSeries = ({ navigation, _character }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,6 +40,7 @@ const CharacterSeries = ({ navigation, _character }) => {
         renderItem={renderSerie}
         ListFooterComponent={footerLoading(isLoading)}
         ItemSeparatorComponent={ListItemSeparator}
+        ListEmptyComponent={getEmptyComponent(isLoading)}
       />
     </View>
   );

@@ -26,7 +26,7 @@ const Search = ({ navigation }) => {
 
   const searchCharacters = async () => {
     setIsLoading(true);
-    const response = await getCharacters(txtSearch);
+    const response = await getCharacters({ nameStartsWith: txtSearch });
 
     if (response) {
       const characters = response.map(

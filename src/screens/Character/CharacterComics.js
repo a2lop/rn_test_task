@@ -4,7 +4,7 @@ import { Comic, Section, Text } from "@components";
 import { getCharacterComics, getCharacterDetail } from "services/characters";
 import Loading from "components/Loading";
 import SectionAbout from "./components/SectionAbout";
-import { footerLoading, getUrlFromThumbnail } from "utils/helpers";
+import { footerLoading, getEmptyComponent, getUrlFromThumbnail } from "utils/helpers";
 
 const CharacterComics = ({ navigation, _character }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +44,7 @@ const CharacterComics = ({ navigation, _character }) => {
         numColumns={2}
         columnWrapperStyle={{ justifyContent: "space-evenly" }}
         ListFooterComponent={footerLoading(isLoading)}
+        ListEmptyComponent={getEmptyComponent(isLoading)}
       />
     </View>
   );

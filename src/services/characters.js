@@ -1,9 +1,16 @@
+import { ITEMS_PER_SEARCH } from "utils/constants";
 import { fetcher } from "../utils/fetcher";
 
-export async function getCharacters(nameStartsWith) {
+export async function getCharacters({
+  nameStartsWith,
+  page = 1,
+  limit = ITEMS_PER_SEARCH
+}) {
+  const offset = (page - 1) * ITEMS_PER_SEARCH;
+
   const response = await fetcher({
     action: "characters",
-    additionalParams: { nameStartsWith }
+    additionalParams: { nameStartsWith, offset, limit }
   });
   if (response.code === 200) {
     return response.data.results;

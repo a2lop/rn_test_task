@@ -2,10 +2,9 @@ import React, { useEffect, useState, useCallback } from "react";
 import { FlatList, View } from "react-native";
 import { Event, ListItemSeparator } from "@components";
 import { getCharacterEvents } from "services/characters";
-import { footerLoading, getUrlFromThumbnail } from "utils/helpers";
+import { footerLoading, getEmptyComponent, getUrlFromThumbnail } from "utils/helpers";
 
 const CharacterEvents = ({ navigation, _character }) => {
-
   const [isLoading, setIsLoading] = useState(true);
   const [events, setEvents] = useState([]);
   let isMounted = true;
@@ -41,6 +40,7 @@ const CharacterEvents = ({ navigation, _character }) => {
         renderItem={renderEvent}
         ListFooterComponent={footerLoading(isLoading)}
         ItemSeparatorComponent={ListItemSeparator}
+        ListEmptyComponent={getEmptyComponent(isLoading)}
       />
     </View>
   );

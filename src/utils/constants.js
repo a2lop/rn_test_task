@@ -5,3 +5,5 @@ export const colors = {
   SILVER: "#ddd",
   WHITE: "#fff"
 };
+
+export const ITEMS_PER_SEARCH = 10;

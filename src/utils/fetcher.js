@@ -11,7 +11,6 @@ export const fetcher = ({ method = "GET", action, additionalParams = {} }) => {
   );
 
   const params = { apikey: PUBLIC_KEY, ts, hash, ...additionalParams };
-  console.log("params", params);
 
   const queryParams = Object.keys(params)
     .map(key => `${key}=${params[key]}`)

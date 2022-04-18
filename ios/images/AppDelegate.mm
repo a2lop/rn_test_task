@@ -16,6 +16,7 @@
 
 #import <react/config/ReactNativeConfig.h>
 
+
 @interface AppDelegate () <RCTCxxBridgeDelegate, RCTTurboModuleManagerDelegate> {
   RCTTurboModuleManager *_turboModuleManager;
   RCTSurfacePresenterBridgeAdapter *_bridgeAdapter;
@@ -24,6 +25,8 @@
 }
 @end
 #endif
+
+#import "RNSplashScreen.h"
 
 @implementation AppDelegate
 
@@ -54,6 +57,9 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+
+  [RNSplashScreen show]; 
+
   return YES;
 }
 

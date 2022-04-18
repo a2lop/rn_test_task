@@ -2,6 +2,8 @@ import Button from "./Button";
 import CharacterListItem from "./CharacterListItem";
 import Comic from "./Comic";
 import Event from "./Event";
+import HeaderEmpty from "./HeaderEmpty";
+import HeaderMain from "./HeaderMain";
 import Input from "./Input";
 import LabelKeyValue from "./LabelKeyValue";
 import LineDivider from "./LineDivider";
@@ -17,6 +19,8 @@ export {
   CharacterListItem,
   Comic,
   Event,
+  HeaderEmpty,
+  HeaderMain,
   Input,
   LabelKeyValue,
   LineDivider,
