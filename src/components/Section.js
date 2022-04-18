@@ -1,18 +1,11 @@
 import React from "react";
 
 import { View } from "react-native";
-import Button from "./Button";
 
 import LineDivider from "./LineDivider";
 import Text from "./Text";
 
-const Section = ({
-  title,
-  children,
-  hideDivider,
-  headerButtonLabel,
-  headerButtonAction = () => {}
-}) => (
+const Section = ({ title, children, hideDivider }) => (
   <View>
     <View
       style={{ flexDirection: "row", marginBottom: 10, alignItems: "center" }}

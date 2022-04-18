@@ -1,8 +1,7 @@
 import i18n from "i18n-js";
 import React from "react";
-import { TouchableOpacity, TextInput, View } from "react-native";
+import { TextInput, View } from "react-native";
 import { colors } from "utils/constants";
-import I18n from "utils/i18n";
 
 const Input = ({ value, setValue, placeholder }) => (
   <View>
